@@ -22,7 +22,7 @@
      - makes the letters be pushed into an array
    - the total number of guesses they get is 12
 
-5. If the user gets the word right, they get a point and the game continues
+5. If the user gets the word right, the game comtinues
    - the game chooses another random word from the list and pushes the used word out
 6. If the user runs out of guesses then they lose a life and the game continues
 7. If the user loses 3 times, then they lose the game
