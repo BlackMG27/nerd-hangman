@@ -1,7 +1,5 @@
 # Nerd Word Guess
 
-<<<<<<< HEAD
-
 ## The Rules of the game are as follows:
 
 1. User gets to the page
@@ -31,10 +29,3 @@
 8. Reset the game
 
 - resets the game by pushing all the words back into the gameWords array
-
-## Functions Needed
-
-=======
-this is a nerd fandom version of a word guess game
-
-> > > > > > > 9e124ece517e3ac493cc5a17832a445b9068b201
