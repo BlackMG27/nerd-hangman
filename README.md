@@ -20,9 +20,9 @@
      - if the guess includes one of the word's letters then it will show up in the queue
    - if the user guesses incorrectly, the letter shows up to the side (push into the queue: an empty array)
      - makes the letters be pushed into an array
-   - the total number of guesses they get is 12
+   - the total number of guesses they get is 15
 
 5. If the user gets the word right, the game comtinues
    - the game chooses another random word from the list and pushes the used word out
 6. If the user runs out of guesses then they lose a life and the game continues
-7. If the user loses 3 times, then they lose the game
+
