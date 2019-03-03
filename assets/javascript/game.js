@@ -1,7 +1,6 @@
 //set up the initial variables get the random word to show up first
 
-var numberGuess = 12;
-var lives = 3;
+var numberGuess = 15;
 var words = [
     //add hints at a later date
     "spiderman",
@@ -18,33 +17,42 @@ var words = [
     "flash",
     "natsu",
     "jostar",
-    "superman"
+    "superman",
+    "xena",
+    "pokemon"
 ];
 //gets a random word from the words array
-var word = words[Math.floor(Math.random() * words.length)];
-//stores the word for later
-var wordGuess = word;
-//needed to change the
+var word;
+//stores the word for later needed to change the
 var space = '_';
-//needed to store the wrong letters 
+//needed to store the wrong letters
 var wrong = [];
 //grabs the divs from HTML
 var wordResult = document.getElementById('wordResult');
 var wrongLetters = document.getElementById('wrongLetters');
-var livesNumber = document.getElementById('livesNumber');
 var guessNumber = document.getElementById('numberGuesses');
+var nextWord = document.getElementById('nextWord');
+var resultPhrase = document.getElementById('resultPhrase');
+var wordHints = document.getElementById('wordHint');
 //puts the current number to the screen
-livesNumber.textContent = lives;
 guessNumber.textContent = numberGuess;
+//initial button setup
+nextWord.style.display = 'none';
 //Global count function
 var totalCount = 0;
 var tempWord = new Array();
 var tempJoin;
 
+//FUNCTIONS
+
+function wordGrab() {
+    word = words[Math.floor(Math.random() * words.length)];
+}
+wordGrab();
+var wordGuess = word;
 
 function wordBlank() {
-    //makes the word into an array
-    //need to 
+    //makes the word into an array need to
     word = word.split('');
     //iterates over the word array
     for (let i = 0; i < word.length; i++) {
@@ -54,11 +62,87 @@ function wordBlank() {
     word = word.join('');
     //puts the new 'word' onto the page
     wordResult.textContent = word;
+
 };
 
 wordBlank();
-//it's here so that the tempWord doesn't restart at zero
+
+/*function resetWord() { //finds the place of the guessed word     var
+    index = words.indexOf(word);
+    console.log(index);
+    //removes the guessed word
+    words.splice(index, 1);
+    //tell the function to grab another word
+    wordGrab();
+    wordGuess = word;
+    word = word.split('');
+    //iterates over the word array
+    for (let i = 0; i < word.length; i++) {
+        //replaces each letter with an underscore and space
+        word[i] = space;
+    }
+    word = word.join('');
+    console.log(word); //puts the new 'word' onto the page
+    wordResult.textContent = word;
+    console.log(words);
+}
+*/
+// so that the tempWord doesn't restart at zero
 tempWord = word.split('');
+switch (wordGuess) {
+    case 'spiderman':
+        wordHints.textContent = "Your Friendly New York Neighborhood...";
+        break;
+    case 'inuyasha':
+        wordHints.textContent = "Tessaiga wielding hot head of Japan's feudal era.";
+        break;
+    case 'naruto':
+        wordHints.textContent = "Konoha's number one Hokage!";
+        break;
+    case 'wolverine':
+        wordHints.textContent = "The most famous adamantium clawed X-men member";
+        break;
+    case 'batman':
+        wordHints.textContent = "The caped crusader";
+        break;
+    case 'dragonball':
+        wordHints.textContent = "Goku is the main character of this franchise";
+        break;
+    case 'rogue':
+        wordHints.textContent = "X-men's sweet southern belle";
+        break;
+    case 'thor':
+        wordHints.textContent = "Norse and Marvel's god of thunder";
+        break;
+    case 'storm':
+        wordHints.textContent = "Marvel's weather goddess";
+        break;
+    case 'cyclops':
+        wordHints.textContent = "Leader of the X-Men";
+        break;
+    case 'gambit':
+        wordHints.textContent = "X-Men's cajun smooth talker";
+        break;
+    case 'flash':
+        wordHints.textContent = "DC's fastest man alive";
+        break;
+    case 'natsu':
+        wordHints.textContent = "Fairy Tail's most boisterous member";
+        break;
+    case 'jostar':
+        wordHints.textContent = "last name of the first two Jojo's in Jojo's Bizarre Adventure";
+        break;
+    case 'superman':
+        wordHints.textContent = "DC's OP big good";
+        break;
+    case 'xena':
+        wordHints.textContent = "Warrior Princess";
+        break;
+    case 'pokemon':
+        wordHints.textContent = "Gotta catch them all!";
+        break;
+
+}
 
 document.onkeyup = function () {
     //1. Create the variables
@@ -67,15 +151,14 @@ document.onkeyup = function () {
     console.log(userGuess);
     console.log(wordGuess);
 
+    //switch case the hints based on the wordGuess
 
     function guessToScreen() {
         //iterate over the word again
         var counter = 0;
 
-
         //the word has to be made into an array
         console.log(word);
-
 
         for (var i = 0; i < wordGuess.length; i++) {
 
@@ -93,8 +176,7 @@ document.onkeyup = function () {
                 totalCount++;
                 console.log(counter);
                 console.log(totalCount);
-                //console.log(wordGuess[i]);
-                console.log(tempWord);
+                // console.log(tempWord);
                 console.log(word[i]);
 
             }
@@ -116,41 +198,30 @@ document.onkeyup = function () {
     }
     guessToScreen();
 
-    function numberLives() {
-        //if the numberGuess = 0
-        if (numberGuess === 0) {
-            lives--;
-            livesNumber.textContent = lives;
-
-        }
-
-        if (lives === 0) {
-            alert('you lose! Game Over!');
-        }
-    }
-
-    numberLives();
-
+    //signals to resume the game once the word is guessed correctly or not
     function gameContinue() {
         //if the totalCount is equal to the word length
         if (totalCount === wordGuess.length) {
-            //reset the page except for lives 
-            //grab a random word
-
-
-            console.log("it's working!");
-            textWord = [];
-            wrong = [];
-            wrongLetters.textContent = wrong;
-            totalCount = 0;
-            console.log(words.indexOf(word));
-            //wordBlank();
-            numberGuess = 12;
-            guessNumber.textContent = numberGuess;
-
+            resultPhrase.textContent = "Congratulations You Won! Feeling Lucky?";
+            newWord();
+        } else if (numberGuess === 0) {
+            resultPhrase.textContent = "Sorry! You lost this round. Want to try again?";
+            newWord();
         }
     }
 
     gameContinue();
+
+    function newWord() {
+        nextWord.style.display = 'block';
+        nextWord.onclick = function () {
+            //should grab another random word
+            location.reload();
+            // wordGrab(); resetWord(); //reset the page except for lives grab a random word
+            // console.log("it's working!"); wrong = []; wrongLetters.textContent = wrong;
+            // totalCount = 0; nextWord.style.display = 'none'; numberGuess = 15;
+            // guessNumber.textContent = numberGuess; resultPhrase.textContent = '';
+        }
+    }
 
 }

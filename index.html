@@ -7,13 +7,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 
-  <title>Nerd Hangman</title>
+  <title>Nerd Word Guess</title>
 </head>
 
 <body>
   <section>
     <div class="wrapper">
-      <h1>Welcome to Nerd Hangman!</h1>
+      <h1>Welcome to Nerd Word Guess!</h1>
       <div class="rules">
         <h2>Here are the rules</h2>
         <ol>
@@ -26,16 +26,21 @@
             not, it will show up to the side.
           </li>
           <li>
-            If you don't solve the word in 12 guesses, then you lose a life
+            If you don't solve the word in 15 guesses then you lose and the game continues
           </li>
-          <li>Lose 3 lives, then you lose the game.</li>
         </ol>
       </div>
+      <div id="workSpace">
+        <div id="resultPhrase"></div>
+        <div id="wordHint"></div>
+        <div id="wordResult"></div>
+        <div id="wrongLetters"></div>
+        <div id="numberGuesses"></div>
+        <!-- <div id="livesNumber"></div> -->
+        <button id="nextWord" tabindex="0">Next Word</button>
+      </div>
+
     </div>
-    <div id="wordResult"></div>
-    <div id="wrongLetters"></div>
-    <div id="numberGuesses"></div>
-    <div id="livesNumber"></div>
   </section>
   <script src="assets/javascript/game.js"></script>
 </body>

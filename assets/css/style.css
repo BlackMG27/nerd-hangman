@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Orbitron:400,900');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 18px;
+    font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#nextWord {
+    display: block;
+    padding: 15px 60px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#workSpace {
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 8%;
+}
+
+#resultPhrase {
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    line-height: 2rem;
+}
+
+li {
+    padding-bottom: 6px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+#wordResult,
+#resultPhrase,
+#numberGuesses,
+#wordHint,
+#wrongLetters {
+    padding-bottom: 10px;
+}
+
+#wordHint {
+    font-size: 1.25rem;
+    letter-spacing: 3px;
+    line-height: 2rem;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#wrongLetters {
+    float: right;
+    font-size: 1.75rem;
+}
+
+#numberGuesses {
+    float: right;
+    margin-right: 40px;
+    font-size: 1.75rem;
+}
+
+#wordResult {
+    font-size: 1.25rem;
+    letter-spacing: 3px;
+    font-weight: 900;
+}
