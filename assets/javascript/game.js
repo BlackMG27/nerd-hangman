@@ -42,7 +42,7 @@ nextWord.style.display = 'none';
 var totalCount = 0;
 var tempWord = new Array();
 var tempJoin;
-
+var letterCheck = new Array();
 //FUNCTIONS
 
 function wordGrab() {
@@ -94,7 +94,7 @@ switch (wordGuess) {
         wordHints.textContent = "Your Friendly New York Neighborhood...";
         break;
     case 'inuyasha':
-        wordHints.textContent = "Tessaiga wielding hot head of Japan's feudal era.";
+        wordHints.textContent = "Tessaiga wielding hot head of Japan's feudal era fairy tale.";
         break;
     case 'naruto':
         wordHints.textContent = "Konoha's number one Hokage!";
@@ -130,7 +130,7 @@ switch (wordGuess) {
         wordHints.textContent = "Fairy Tail's most boisterous member";
         break;
     case 'jostar':
-        wordHints.textContent = "last name of the first two Jojo's in Jojo's Bizarre Adventure";
+        wordHints.textContent = "last name of the first two Jojos in Jojo's Bizarre Adventure";
         break;
     case 'superman':
         wordHints.textContent = "DC's OP big good";
@@ -139,7 +139,7 @@ switch (wordGuess) {
         wordHints.textContent = "Warrior Princess";
         break;
     case 'pokemon':
-        wordHints.textContent = "Gotta catch them all!";
+        wordHints.textContent = "Gotta catch 'em all!";
         break;
 
 }
@@ -147,9 +147,13 @@ switch (wordGuess) {
 document.onkeyup = function () {
     //1. Create the variables
     var userGuess = event.key;
+    //puts all of the guesses into an array
+    letterCheck.push(userGuess);
+
     //checks to see if the code is working
     console.log(userGuess);
     console.log(wordGuess);
+    console.log(letterCheck);
 
     //switch case the hints based on the wordGuess
 
@@ -157,9 +161,8 @@ document.onkeyup = function () {
         //iterate over the word again
         var counter = 0;
 
-        //the word has to be made into an array
-        console.log(word);
 
+        //the word has to be made into an array
         for (var i = 0; i < wordGuess.length; i++) {
 
             //check to see if the letter guessed is one of the letters of the word
@@ -168,10 +171,13 @@ document.onkeyup = function () {
 
                 //for the userGuess to take the place of word[i]
                 tempWord[i] = userGuess;
-                //turns the word array back into a string
+                //if the tempWord includes userGuess turns the word array back into a string
+                //if userGuess is already in tempWord
                 tempJoin = tempWord.join('');
                 wordResult.textContent = tempJoin;
-                //console.log(word);
+
+
+                console.log(word);
                 counter++;
                 totalCount++;
                 console.log(counter);
@@ -182,7 +188,6 @@ document.onkeyup = function () {
             }
 
         }
-        console.log(counter);
         if (counter === 0) {
             console.log('not here!');
             //pushes the wrong guess into the wrong array
@@ -192,6 +197,7 @@ document.onkeyup = function () {
             wrongLetters.textContent = wrong;
             numberGuess--;
             console.log(numberGuess);
+            //updates the number of guesses left
             guessNumber.textContent = numberGuess;
         }
 
@@ -205,7 +211,7 @@ document.onkeyup = function () {
             resultPhrase.textContent = "Congratulations You Won! Feeling Lucky?";
             newWord();
         } else if (numberGuess === 0) {
-            resultPhrase.textContent = "Sorry! You lost this round. Want to try again?";
+            resultPhrase.textContent = "Sorry! You lost this round. The word was " + wordGuess + ". Want to try again?";
             newWord();
         }
     }
