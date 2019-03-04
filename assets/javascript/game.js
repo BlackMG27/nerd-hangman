@@ -148,6 +148,9 @@ document.onkeyup = function () {
     //1. Create the variables
     var userGuess = event.key;
     //puts all of the guesses into an array
+    if (letterCheck.includes(userGuess)) {
+        return;
+    }
     letterCheck.push(userGuess);
 
     //checks to see if the code is working
@@ -161,7 +164,6 @@ document.onkeyup = function () {
         //iterate over the word again
         var counter = 0;
 
-
         //the word has to be made into an array
         for (var i = 0; i < wordGuess.length; i++) {
 
@@ -171,11 +173,10 @@ document.onkeyup = function () {
 
                 //for the userGuess to take the place of word[i]
                 tempWord[i] = userGuess;
-                //if the tempWord includes userGuess turns the word array back into a string
-                //if userGuess is already in tempWord
+                // if the tempWord includes userGuess turns the word array back into a string if
+                // userGuess is already in tempWord
                 tempJoin = tempWord.join('');
                 wordResult.textContent = tempJoin;
-
 
                 console.log(word);
                 counter++;
