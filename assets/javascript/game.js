@@ -43,7 +43,6 @@ var totalCount = 0;
 var tempWord = new Array();
 var tempJoin;
 var letterCheck = new Array();
-//FUNCTIONS
 
 function wordGrab() {
     word = words[Math.floor(Math.random() * words.length)];
@@ -67,8 +66,8 @@ function wordBlank() {
 
 wordBlank();
 
-/*function resetWord() { //finds the place of the guessed word     var
-    index = words.indexOf(word);
+function resetWord() { //finds the place of the guessed word
+    var index = words.indexOf(word);
     console.log(index);
     //removes the guessed word
     words.splice(index, 1);
@@ -86,63 +85,67 @@ wordBlank();
     wordResult.textContent = word;
     console.log(words);
 }
-*/
 // so that the tempWord doesn't restart at zero
 tempWord = word.split('');
-switch (wordGuess) {
-    case 'spiderman':
-        wordHints.textContent = "Your Friendly New York Neighborhood...";
-        break;
-    case 'inuyasha':
-        wordHints.textContent = "Tessaiga wielding hot head of Japan's feudal era fairy tale.";
-        break;
-    case 'naruto':
-        wordHints.textContent = "Konoha's number one Hokage!";
-        break;
-    case 'wolverine':
-        wordHints.textContent = "The most famous adamantium clawed X-men member";
-        break;
-    case 'batman':
-        wordHints.textContent = "The caped crusader";
-        break;
-    case 'dragonball':
-        wordHints.textContent = "Goku is the main character of this franchise";
-        break;
-    case 'rogue':
-        wordHints.textContent = "X-men's sweet southern belle";
-        break;
-    case 'thor':
-        wordHints.textContent = "Norse and Marvel's god of thunder";
-        break;
-    case 'storm':
-        wordHints.textContent = "Marvel's weather goddess";
-        break;
-    case 'cyclops':
-        wordHints.textContent = "Leader of the X-Men";
-        break;
-    case 'gambit':
-        wordHints.textContent = "X-Men's cajun smooth talker";
-        break;
-    case 'flash':
-        wordHints.textContent = "DC's fastest man alive";
-        break;
-    case 'natsu':
-        wordHints.textContent = "Fairy Tail's most boisterous member";
-        break;
-    case 'jostar':
-        wordHints.textContent = "last name of the first two Jojos in Jojo's Bizarre Adventure";
-        break;
-    case 'superman':
-        wordHints.textContent = "DC's OP big good";
-        break;
-    case 'xena':
-        wordHints.textContent = "Warrior Princess";
-        break;
-    case 'pokemon':
-        wordHints.textContent = "Gotta catch 'em all!";
-        break;
+//provides the hints
+function updateHints() {
+    switch (wordGuess) {
+        case 'spiderman':
+            wordHints.textContent = "Your Friendly New York Neighborhood...";
+            break;
+        case 'inuyasha':
+            wordHints.textContent = "Tessaiga wielding hot head of Japan's feudal era fairy tale.";
+            break;
+        case 'naruto':
+            wordHints.textContent = "Konoha's number one Hokage!";
+            break;
+        case 'wolverine':
+            wordHints.textContent = "The most famous adamantium clawed X-men member";
+            break;
+        case 'batman':
+            wordHints.textContent = "The caped crusader";
+            break;
+        case 'dragonball':
+            wordHints.textContent = "Goku is the main character of this franchise";
+            break;
+        case 'rogue':
+            wordHints.textContent = "X-men's sweet southern belle";
+            break;
+        case 'thor':
+            wordHints.textContent = "Norse and Marvel's god of thunder";
+            break;
+        case 'storm':
+            wordHints.textContent = "Marvel's weather goddess";
+            break;
+        case 'cyclops':
+            wordHints.textContent = "Leader of the X-Men";
+            break;
+        case 'gambit':
+            wordHints.textContent = "X-Men's cajun smooth talker";
+            break;
+        case 'flash':
+            wordHints.textContent = "DC's fastest man alive";
+            break;
+        case 'natsu':
+            wordHints.textContent = "Fairy Tail's most boisterous member";
+            break;
+        case 'jostar':
+            wordHints.textContent = "last name of the first two Jojos in Jojo's Bizarre Adventure";
+            break;
+        case 'superman':
+            wordHints.textContent = "DC's OP big good";
+            break;
+        case 'xena':
+            wordHints.textContent = "Warrior Princess";
+            break;
+        case 'pokemon':
+            wordHints.textContent = "Gotta catch 'em all!";
+            break;
 
+    }
 }
+
+updateHints();
 
 document.onkeyup = function () {
     //1. Create the variables
@@ -180,6 +183,7 @@ document.onkeyup = function () {
 
                 console.log(word);
                 counter++;
+                //keeps track of the total number of letters in the word
                 totalCount++;
                 console.log(counter);
                 console.log(totalCount);
@@ -222,13 +226,22 @@ document.onkeyup = function () {
     function newWord() {
         nextWord.style.display = 'block';
         nextWord.onclick = function () {
-            //should grab another random word
-            location.reload();
-            // wordGrab(); resetWord(); //reset the page except for lives grab a random word
-            // console.log("it's working!"); wrong = []; wrongLetters.textContent = wrong;
-            // totalCount = 0; nextWord.style.display = 'none'; numberGuess = 15;
-            // guessNumber.textContent = numberGuess; resultPhrase.textContent = '';
+            //should grab another random word location.reload();
+            wordGrab();
+            resetWord(); //reset the page except for lives grab a random word
+            tempWord = word.split('');
+            console.log(word, wordGuess);
+            wrong = [];
+            letterCheck = [];
+            wrongLetters.textContent = wrong;
+            totalCount = 0;
+            numberGuess = 15;
+            guessNumber.textContent = numberGuess;
+            resultPhrase.textContent = '';
+            nextWord.style.display = 'none';
+            // tempWord = [];
+            tempJoin = null;
+            updateHints();
         }
     }
-
 }
