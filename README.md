@@ -8,14 +8,10 @@
 
 4. user makes the first guess
 
-   - triggers onkeyup event
-   - user guess is stored into variable userGuess (userGuess = event.key)
-   - makes a for loop to check if the letter is one or more of the letters in the word
-
    - if the users guesses correctly, the letter shows up in the box
      - if the guess includes one of the word's letters then it will show up in the queue
    - if the user guesses incorrectly, the letter shows up to the side
    - the total number of guesses they get is 15
 
-5. If the user gets the word right, the game continues
+5. If the user gets the word right, they win and the game continues
 6. If the user runs out of guesses, you lose and the game continues
