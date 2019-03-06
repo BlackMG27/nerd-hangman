@@ -22,7 +22,8 @@ var words = [
     "pokemon"
 ];
 //gets a random word from the words array
-var word;
+var word = words[Math.floor(Math.random() * words.length)];
+
 //stores the word for later needed to change the
 var space = '_';
 //needed to store the wrong letters
@@ -47,7 +48,7 @@ var letterCheck = new Array();
 function wordGrab() {
     word = words[Math.floor(Math.random() * words.length)];
 }
-wordGrab();
+
 var wordGuess = word;
 
 function wordBlank() {
@@ -67,10 +68,11 @@ function wordBlank() {
 wordBlank();
 
 function resetWord() { //finds the place of the guessed word
-    var index = words.indexOf(word);
-    console.log(index);
-    //removes the guessed word
+    console.log(wordGuess, ' This is the word');
+    var index = words.indexOf(wordGuess);
+    //console.log(index); removes the guessed word
     words.splice(index, 1);
+    console.log(words);
     //tell the function to grab another word
     wordGrab();
     wordGuess = word;
@@ -81,9 +83,9 @@ function resetWord() { //finds the place of the guessed word
         word[i] = space;
     }
     word = word.join('');
-    console.log(word); //puts the new 'word' onto the page
+    //console.log(word); //puts the new 'word' onto the page
     wordResult.textContent = word;
-    console.log(words);
+    //console.log(words);
 }
 // so that the tempWord doesn't restart at zero
 tempWord = word.split('');
@@ -156,12 +158,9 @@ document.onkeyup = function () {
     }
     letterCheck.push(userGuess);
 
-    //checks to see if the code is working
-    console.log(userGuess);
-    console.log(wordGuess);
-    console.log(letterCheck);
-
-    //switch case the hints based on the wordGuess
+    // checks to see if the code is working //console.log(userGuess);
+    // //console.log(wordGuess); //console.log(letterCheck); switch case the hints
+    // based on the wordGuess
 
     function guessToScreen() {
         //iterate over the word again
@@ -172,37 +171,30 @@ document.onkeyup = function () {
 
             //check to see if the letter guessed is one of the letters of the word
             if (wordGuess[i] === userGuess) {
-                console.log('You got one!');
-
-                //for the userGuess to take the place of word[i]
+                //console.log('You got one!'); for the userGuess to take the place of word[i]
                 tempWord[i] = userGuess;
                 // if the tempWord includes userGuess turns the word array back into a string if
                 // userGuess is already in tempWord
                 tempJoin = tempWord.join('');
                 wordResult.textContent = tempJoin;
 
-                console.log(word);
+                // //console.log(word);
                 counter++;
                 //keeps track of the total number of letters in the word
                 totalCount++;
-                console.log(counter);
-                console.log(totalCount);
-                // console.log(tempWord);
-                console.log(word[i]);
+                // //console.log(counter); //console.log(totalCount); //
+                // //console.log(tempWord); //console.log(word[i]);
 
             }
 
         }
         if (counter === 0) {
-            console.log('not here!');
-            //pushes the wrong guess into the wrong array
+            //console.log('not here!'); pushes the wrong guess into the wrong array
             wrong.push(' ' + userGuess + ' ');
-            console.log(wrong);
-            //stores the wrong array and puts it on the screen
+            // //console.log(wrong); stores the wrong array and puts it on the screen
             wrongLetters.textContent = wrong;
             numberGuess--;
-            console.log(numberGuess);
-            //updates the number of guesses left
+            // //console.log(numberGuess); updates the number of guesses left
             guessNumber.textContent = numberGuess;
         }
 
@@ -227,10 +219,10 @@ document.onkeyup = function () {
         nextWord.style.display = 'block';
         nextWord.onclick = function () {
             //should grab another random word location.reload();
-            wordGrab();
-            resetWord(); //reset the page except for lives grab a random word
+            resetWord();
+            //wordGrab(); reset the page except for lives grab a random word
             tempWord = word.split('');
-            console.log(word, wordGuess);
+            //console.log(word, wordGuess);
             wrong = [];
             letterCheck = [];
             wrongLetters.textContent = wrong;
