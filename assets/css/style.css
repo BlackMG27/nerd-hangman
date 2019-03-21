@@ -103,4 +103,8 @@ li {
   .wrapper {
     height: 140%;
   }
+
+  #workSpace {
+    width: 100%;
+  }
 }
