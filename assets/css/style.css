@@ -1,64 +1,63 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Orbitron:400,900');
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 18px;
-    font-family: 'Orbitron', Arial, Helvetica, sans-serif;
-    background-color: rgb(20, 20, 53);
+  font-size: 18px;
+  font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+  background-color: rgb(20, 20, 53);
 }
 
 section {
-    background-image: url('../images/manga-vs-comics.jpg');
-    background-size: cover;
-    padding: 110px;
+  background-image: url('../images/manga-vs-comics.jpg');
+  background-size: cover;
+  padding: 110px;
 }
 
 h1 {
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .wrapper {
-    width: 90%;
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: rgb(252, 249, 249);
-    height: 70vh;
-    padding: 30px;
-    border-radius: 8px;
-    margin-top: 3%;
-
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgb(252, 249, 249);
+  height: 70vh;
+  padding: 30px;
+  border-radius: 8px;
+  margin-top: 3%;
 }
 
 #nextWord {
-    display: block;
-    padding: 15px 60px;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
+  display: block;
+  padding: 15px 60px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 #workSpace {
-    width: 95%;
-    max-width: 700px;
-    margin: 0 auto;
-    margin-top: 8%;
-    background-color: rgb(252, 249, 249);
+  width: 95%;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 8%;
+  background-color: rgb(252, 249, 249);
 }
 
 #resultPhrase {
-    font-weight: 900;
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    line-height: 2rem;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  line-height: 2rem;
 }
 
 li {
-    padding-bottom: 6px;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  padding-bottom: 6px;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 #wordResult,
@@ -66,31 +65,42 @@ li {
 #numberGuesses,
 #wordHint,
 #wrongLetters {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 #wordHint {
-    font-size: 1.25rem;
-    letter-spacing: 3px;
-    line-height: 2rem;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    font-weight: bold;
+  font-size: 1.25rem;
+  letter-spacing: 3px;
+  line-height: 2rem;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
 #wrongLetters {
-    float: right;
-    font-size: 1.75rem;
+  float: right;
+  font-size: 1.75rem;
 }
 
 #numberGuesses {
-    float: right;
-    margin-right: 40px;
-    font-size: 1.75rem;
+  float: right;
+  margin-right: 40px;
+  font-size: 1.75rem;
 }
 
 #wordResult {
-    font-size: 1.65rem;
-    letter-spacing: 3px;
-    font-weight: 900;
-    text-align: center;
+  font-size: 1.65rem;
+  letter-spacing: 3px;
+  font-weight: 900;
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  section {
+    padding: 0;
+    padding-bottom: 10rem;
+  }
+
+  .wrapper {
+    height: 140%;
+  }
 }

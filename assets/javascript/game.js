@@ -70,7 +70,7 @@ wordBlank();
 function resetWord() { //finds the place of the guessed word
     console.log(wordGuess, ' This is the word');
     var index = words.indexOf(wordGuess);
-    //console.log(index); removes the guessed word
+    // removes the guessed word
     words.splice(index, 1);
     console.log(words);
     //tell the function to grab another word
@@ -159,7 +159,7 @@ document.onkeyup = function () {
     letterCheck.push(userGuess);
 
     // checks to see if the code is working //console.log(userGuess);
-    // //console.log(wordGuess); //console.log(letterCheck); switch case the hints
+    // //console.log(wordGuess); console.log(letterCheck); switch case the hint
     // based on the wordGuess
 
     function guessToScreen() {
@@ -189,12 +189,12 @@ document.onkeyup = function () {
 
         }
         if (counter === 0) {
-            //console.log('not here!'); pushes the wrong guess into the wrong array
+            //pushes the wrong guess into the wrong array
             wrong.push(' ' + userGuess + ' ');
-            // //console.log(wrong); stores the wrong array and puts it on the screen
+            //  stores the wrong array and puts it on the screen
             wrongLetters.textContent = wrong;
             numberGuess--;
-            // //console.log(numberGuess); updates the number of guesses left
+            // updates the number of guesses left
             guessNumber.textContent = numberGuess;
         }
 
